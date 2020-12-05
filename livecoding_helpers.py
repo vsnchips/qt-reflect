@@ -45,5 +45,14 @@ class mPatcher:
                 setattr(state, k, obj)
 patch=mPatcher().m_patch
 
+import pprint
+pp=pprint.pprint
 
-import gl_window as glw
+
+def exception_handler(func):
+    def inner_function(*args, **kwargs):
+        try:
+            func(*args, **kwargs)
+        except TypeError:
+            print(f"{func.__name__} only takes numbers as the argument")
+    return inner_function

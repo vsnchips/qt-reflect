@@ -4,9 +4,11 @@ preIncluded='PySide2' in sys.modules
 sys.path.append('.')
 from livecoding_helpers import *
 import PyQt5
+
 import os,sys
 from PyQt5.QtGui import QPixmap, QResizeEvent
-from PyQt5.QtWidgets import QWidget, QMainWindow, QApplication, QLabel, QVBoxLayout, QSizePolicy
+from PyQt5.QtWidgets import QWidget, QMainWindow, QApplication, QLabel, QVBoxLayout, QSizePolicy, QMenu
+from PyQt5.QtWidgets import *
 from PyQt5.QtCore import QTimer, QObject, QSize, Qt
 
 #Custom PyQt Modules
@@ -28,7 +30,7 @@ class LiveMonitor(QWidget):
 
     """ The base QWidget class for RV guis, with a simple frame tick and communication functionality added. """
 
-    def __init__(self,interface=None,title="VMPW Live Dev"):
+    def __init__(self,interface=None,title="Live Qt Dev Process"):
         super(LiveMonitor,self).__init__()
 
         #Hook up messaging and control
@@ -85,11 +87,8 @@ class LiveMonitor(QWidget):
     def tick(self):
         #Poll control messages
         self.domessages()
-
         #Update self
         self.update()
-        #self.handleScale()
-        #self.updatedisplay(self.getNextSet())
         #Post control messages
 
     '''def update(self):
@@ -99,7 +98,30 @@ class LiveMonitor(QWidget):
     def handleScaleCallBack(self):
         #TODO Delegate this math to a resize event handler
         pass
+
+    def contextMenuEvent(self, event):
+        contextMenu = QMenu('This is a VMPW livegui QWidget',self)
+        newAct = contextMenu.addAction("New")
+        openAct = contextMenu.addAction("Open")
+        quitAct = contextMenu.addAction("Quit")
         
+        subMenu = contextMenu.addMenu('subFoo')
+        
+        q2act =subMenu.addAction("Quit")
+        printAct =subMenu.addAction("Foo")
+        #act2 = subMenu.exec_(self.mapToGlobal(event.pos()))
+        #if act2 == printAct:
+         
+        action = contextMenu.exec_(self.mapToGlobal(event.pos()))
+        if action == quitAct:
+            self.close()
+        if action == printAct:
+            print("Foo")
+ 
+    
+mon=None
+pc=None
+   
 def makeLive(interface):
     app=QApplication(sys.argv)
     mon=LiveMonitor(interface=interface)
@@ -110,7 +132,10 @@ def makeLive(interface):
     timer.timeout.connect(mon.tick)
     timerID=timer.start(1000//60)
 
-    mon.show()
+    #mon.show()
+    pc = PythonConsole()
+    pc.show()
+
     sys.exit(app.exec_())
 
 def launchLive():
@@ -150,12 +175,16 @@ class rvGuiInterface():
 
 def gxf(code):
     gui.exec('execfile(' + code + ', globals() )')
+
+
 if __name__=='__main__':
     pass
-
+    import importlib as il
+    
     #import time; time.sleep(5)
-    #gui=launchLive()
+    gui=launchLive()
     #gui.execfile(sys.argv[1])
 
-    #gx=gui.exec
+    gx=gui.exec
     #gxf=gui.execfile
+    gx('import gl_window as glw; il.reload(glw); glw1=glw.vmpw_GL(); glw1.show()')

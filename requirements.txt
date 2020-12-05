@@ -1,0 +1,8 @@
+python-rtmidi
+qtpy
+PyQt5
+glumpy
+IPython
+PyOpenGL
+numpy
+aubio
