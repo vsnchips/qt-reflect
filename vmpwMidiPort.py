@@ -16,29 +16,22 @@ def midi_error(error,foo,bar):
 	[print( m) for m in (error,foo,bar)]
 
 
-def getmessages():
 
-	try:
-		if(inport is not None):	
-			with theLock:
-				spin = global_running 
-				if (not global_running):
-					print("Closing Midi Port")
-					inport.close_port()
-					return
-			message = inport.get_message()
-			if (message != None):
-				print(message)
-	except Exception as e:
-		print(e)
-
-from qtpy.QtWidgets import QWidget,QVBoxLayout,QPushButton
+from qtpy.QtWidgets import QWidget,QVBoxLayout,QPushButton,QTextEdit,QLabel
 from qtpy.QtCore import QTimer
 
 from functools import partial
 
+
+def default_message_callback(self,message):
+	self.messageBox.setText(
+					str(message)
+					)
+	self.update()
+	print(message)
+	
 class vmpwMidiWidget(QWidget):
-	def __init__(self):
+	def __init__(self,callback=default_message_callback):
 		super(vmpwMidiWidget,self).__init__()
 
 		self.setWindowTitle('vmpw Midi Reader')
@@ -64,11 +57,17 @@ class vmpwMidiWidget(QWidget):
 			self.inputButtons.append(button)
 		self.i=None
 
+		#Monitor
+		self.messageBox=QLabel('')
+		self.layout.addWidget(self.messageBox)	
+
 		timer=QTimer(self)
 		timer.setInterval(1)
-		timer.timeout.connect(getmessages)
+		timer.timeout.connect(self.getmessages)
 		timerID=timer.start(1000//60)
 		self.timer=timer
+
+		self.callback=callback
 		self.show()
 
 	#@exception_handler
@@ -88,7 +87,28 @@ class vmpwMidiWidget(QWidget):
 			print((port))
 		return ports
 
+	def getmessages(self):
+
+		try:
+			if(inport is not None):	
+				with theLock:
+					spin = global_running 
+					if (not global_running):
+						print("Closing Midi Port")
+						inport.close_port()
+						return
+				message = inport.get_message()
+				if (message != None):
+					
+					self.callback(self,message)
+					#self.messageBox.repaint()
+					return message
+		except Exception as e:
+			print(e)
+		return None
+
 
 	def closeEvent(self,event):
 		self.ins.close_port()
 		if (self.i is not None):	print("Closing port {0}".format(self.i))
+

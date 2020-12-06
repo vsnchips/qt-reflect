@@ -6,7 +6,8 @@ Created on Sat Dec  5 16:15:56 2020
 """
 
 # Set the QT API to PyQt4
-import os
+import os,sys
+
 # Import the console machinery from ipython
 from qtconsole.rich_ipython_widget import RichIPythonWidget
 from qtconsole.inprocess import QtInProcessKernelManager
@@ -70,18 +71,34 @@ class ExampleWidget(QWidget):
 class DevWidget(ExampleWidget):
     def __init__(self, parent=None,file=None):
         super(DevWidget,self).__init__(parent)
-        execfile(file,dict(globals(),**locals()))
+        
 
         self.setWindowTitle('pySpiel Live Console')
-        self.ipyConsole.pushVariables(dict(globals(),**locals()))
-        
+
+        rootCons = self.ipyConsole
+        rootWidget = self
+        rootWidget.setStyleSheet("color: white;"
+                        "background-color: #333333;"
+                        "selection-color: yellow;"
+                        "selection-background-color: brown;"
+                        )
+        rootCons.setStyleSheet("color: white;"
+                        "background-color: dark-grey;"
+                        "selection-color: yellow;"
+                        "selection-background-color: brown;"
+                        )
+        rootCons.pushVariables(dict(globals(),**locals()))
+        rootCons.execute('rootCons.change_font_size(7)')
+        rootCons.execute('from vmpw import *')
+
+
 def print_process_id():
     print ('Process ID is:', os.getpid() )       
 
 widget=None
 def main():
     app  = QApplication([])
-    widget = DevWidget(file='vmpw_live/vmpw.py')
+    widget = DevWidget()
     widget.show()
     app.exec_()    
 
