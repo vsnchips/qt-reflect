@@ -5,7 +5,7 @@ varying vec2 fragCoord;
 uniform float iGlobalTime;
 uniform vec2 iMouse;
 
-uniform vec4 iControlChannels[4][2];
+uniform float iControlChannels[32];
 uniform vec4 iControlButtons[4];
 
 #define STEP_COUNT 10
@@ -40,29 +40,20 @@ void main(){
 
     //background pattern:
     vec2 uv = fragCoord;
-    
-    vec3 c = vec3(getPattern(uv*3));
-    float d=1;//=DE(uv);//get distance to objects
-    c=mix(vec3(1.0-10.0*d*d),c,smoothstep(0.2,0.25,d));//mix in objects
-
-
-    //BG post level
-    c*=0.2;
-
+  
+    vec3 c=vec3(0.1333, 0.1333, 0.2392);
+  
     //Debug Uniforms
-    ivec2 ctlIndex = ivec2(uv.x*8,uv.y*4);
-    int id=4*ctlIndex.x+ctlIndex.y;
+    ivec2 ctlCoords = ivec2(uv.x*8,(1-uv.y)*4);
+    int id=4*ctlCoords.x+ctlCoords.y;
     
     vec3 debugctl=vec3(0);
 
-    //debugctl = vec3(vec2(ctlIndex)/32.0,id/32.0);
+    //debugctl = vec3(vec2(ctlCoords)/32.0,id/32.0);
+    debugctl.g += iControlChannels[id]/127.0+0.;
     
-    debugctl.g += iControlChannels[5][0]/32;
-    
-    c=debugctl;
+    c+=debugctl;
 
     //c.b += iControlChannels[2].a;
-
-
     gl_FragColor = vec4(c,1.0);
 }

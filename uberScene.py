@@ -10,18 +10,22 @@ fragment=open('uberShader.frag','r').read()
 
 vertex = '''
 attribute vec2 a_position;
+attribute vec2 a_fragCoord;
 varying vec2 fragCoord;
 
 void main()
 {
     gl_Position = vec4(a_position, 0.0, 1.0);
-    fragCoord = a_position;
+    fragCoord = a_fragCoord;
 }
 '''
 
 program = gloo.Program(vertex,fragment,count=4)
+#program.activate()
+
 
 program['a_position'] = [(-1, -1), (-1, +1), (+1, -1), (+1, +1)]
+program['a_fragCoord'] = [(0, 0), (0, +1), (+1, 0), (+1, +1)]
 program['iGlobalTime'] = 0.0
 
 
@@ -33,13 +37,9 @@ program['iGlobalTime'] = 0.0
 def draw():
 	#Background Scene
 	
+	global program
+	#program['a_position'] = [(-1, -1), (+1, -1), (-1, +1), (+1, +1)]
 	#Get uniforms
-	arr=np.array( [range(i,i+4) for i in range(8) ] );arr
-
-	#program['iControlChannels[7]']=[1,1,1,1]
-	#program['iControlChannels'] = arr
-	
-	program['a_position'] = [(-1, -1), (-1, +1), (+1, -1), (+1, +1)]
 	program['iGlobalTime'] = time.time()%8192
 
 	program.draw(gl.GL_TRIANGLE_STRIP)

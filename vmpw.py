@@ -23,24 +23,15 @@ gl1=glw.vmpw_GL(None)
 gl1.liveMap=usDev
 gl1.go()
 
+
 #Midi
-
-msg=None
-def midiCallBack(message):
-	global msg
-	msg=message
-	print(message)	
-
+import vmpwMidiPort as midi;il.reload(midi)
 import numpy as np
 msg=None
 chans=np.zeros((4,2,4))
 chan=0
 chx=None
 val=None
-
-
-import vmpwMidiPort as midi;il.reload(midi)
-
 def midiCallBack(self,message):
     '''This callback maps the Novation Launch Control XL's knobs and sliders into a (4,2,4) array. Organised in 4 banks. Knobs are indexed top to bottom, sliders are the 4th element. (topknob,middleknob,bottomknob,slider)'''
 
@@ -59,18 +50,28 @@ def midiCallBack(self,message):
     if( ch>= 49 and ch<=56):
         chan=ch-49
         row=2
-    if( ch>= 78 and ch<=84):
-        chan=ch-49
+    if( ch>= 77 and ch<=84):
+        chan=ch-77
         row=3
         
     chx=(chan//2,chan%2,row)
     print(chx)
     val=message[0][2]
     chans[chx]=val
+    floatchan = 8*chx[0]+4*chx[1]+chx[2]
+    gl.glUseProgram(us.program.handle)
+    gl.glUniform1fv(gl.glGetUniformLocation(
+        us.program.handle,'iControlChannels')+floatchan,1,val
+        )
+    
 mwidge=midi.vmpwMidiWidget(callback=midiCallBack)
 
-# Python Live Swapping.
-# Watches the source tree, reimports the module
+
+gl.glUseProgram(us.program.handle);
+gl.glUniform1fv(
+    gl.glGetUniformLocation(us.program.handle,'iControlChannels'),
+    32,np.random.rand(32));
+
 
 if __name__=='__main__':
 	app.exec_()
