@@ -1,10 +1,14 @@
-# Get these all with conda install.
-
-python-rtmidi
-qtpy
-PyQt5
-glumpy
-IPython
-PyOpenGL
 numpy
+cython
 aubio
+python-rtmidi
+python-osc
+PyQt5
+PySide2
+qtpy
+Pillow
+IPython
+jupyter
+glumpy
+qtconsole
+PyOpenGL
