@@ -1,3 +1,5 @@
+# Get these all with conda install.
+
 python-rtmidi
 qtpy
 PyQt5

@@ -72,6 +72,10 @@ gl.glUniform1fv(
     gl.glGetUniformLocation(us.program.handle,'iControlChannels'),
     32,np.random.rand(32));
 
+## Set up OSC Server
+
+## Set up aubio input
+
 
 if __name__=='__main__':
 	app.exec_()
