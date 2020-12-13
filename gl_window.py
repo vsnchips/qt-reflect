@@ -45,6 +45,7 @@ class vmpw_GL(QOpenGLWidget):
         self.enabled=False
         self.timer.stop()
 
+    import traceback
     def paintGL(self):
         self.time = time.time()
         #print(self.time)
@@ -54,8 +55,9 @@ class vmpw_GL(QOpenGLWidget):
             if (self.enabled): self.liveMap['paintGL']()
             
         except Exception as e:
-            self.error(e)
-        #self.update()
+            self.log("Exception getting message:")
+            self.log(traceback.format_exc())
+
 
     def error(self,err):
         

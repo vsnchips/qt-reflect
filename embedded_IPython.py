@@ -87,9 +87,9 @@ class DevWidget(ExampleWidget):
                         "selection-color: yellow;"
                         "selection-background-color: brown;"
                         )
+        rootCons.execute('from vmpw import *')
         rootCons.pushVariables(dict(globals(),**locals()))
         rootCons.execute('rootCons.change_font_size(7)')
-        rootCons.execute('from vmpw import *')
 
 
 def print_process_id():

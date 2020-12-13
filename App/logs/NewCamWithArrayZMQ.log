@@ -1,0 +1,593 @@
+2020-12-14 02:39:30,339 - NewCamWithArrayZMQ - WARNING - Initialisation not implemented
+2020-12-14 02:40:51,998 - NewCamWithArrayZMQ - INFO - sdfd
+2020-12-14 02:40:53,993 - NewCamWithArrayZMQ - INFO - sdfd
+2020-12-14 02:40:55,306 - NewCamWithArrayZMQ - INFO - sdfd
+2020-12-14 02:40:59,090 - NewCamWithArrayZMQ - INFO - sdfd
+2020-12-14 02:40:59,558 - NewCamWithArrayZMQ - INFO - sdfd
+2020-12-14 02:41:03,030 - NewCamWithArrayZMQ - INFO - sdfd
+2020-12-14 02:41:03,681 - NewCamWithArrayZMQ - INFO - sdfd
+2020-12-14 02:41:04,307 - NewCamWithArrayZMQ - INFO - sdfd
+2020-12-14 02:41:16,543 - NewCamWithArrayZMQ - INFO - sdfd
+2020-12-14 02:41:17,198 - NewCamWithArrayZMQ - INFO - sdfd
+2020-12-14 02:41:18,165 - NewCamWithArrayZMQ - INFO - sdfd
+2020-12-14 02:41:18,416 - NewCamWithArrayZMQ - INFO - sdfd
+2020-12-14 02:42:41,497 - NewCamWithArrayZMQ - INFO - sdfd
+2020-12-14 02:42:41,776 - NewCamWithArrayZMQ - INFO - sdfd
+2020-12-14 02:42:41,998 - NewCamWithArrayZMQ - INFO - sdfd
+2020-12-14 02:43:20,933 - NewCamWithArrayZMQ - WARNING - Initialisation not implemented
+2020-12-14 02:43:20,933 - NewCamWithArrayZMQ - WARNING - Initialisation not implemented
+2020-12-14 02:43:47,975 - NewCamWithArrayZMQ - INFO - sdfd
+2020-12-14 02:43:47,975 - NewCamWithArrayZMQ - INFO - sdfd
+2020-12-14 02:44:03,639 - NewCamWithArrayZMQ - INFO - sdfd
+2020-12-14 02:44:03,639 - NewCamWithArrayZMQ - INFO - sdfd
+2020-12-14 02:44:16,875 - NewCamWithArrayZMQ - INFO - sdfd
+2020-12-14 02:44:16,875 - NewCamWithArrayZMQ - INFO - sdfd
+2020-12-14 02:44:18,119 - NewCamWithArrayZMQ - INFO - sdfd
+2020-12-14 02:44:18,119 - NewCamWithArrayZMQ - INFO - sdfd
+2020-12-14 02:44:18,746 - NewCamWithArrayZMQ - INFO - sdfd
+2020-12-14 02:44:18,746 - NewCamWithArrayZMQ - INFO - sdfd
+2020-12-14 02:44:19,433 - NewCamWithArrayZMQ - INFO - sdfd
+2020-12-14 02:44:19,433 - NewCamWithArrayZMQ - INFO - sdfd
+2020-12-14 02:44:43,626 - NewCamWithArrayZMQ - INFO - sdfd
+2020-12-14 02:44:43,626 - NewCamWithArrayZMQ - INFO - sdfd
+2020-12-14 02:44:44,243 - NewCamWithArrayZMQ - INFO - sdfd
+2020-12-14 02:44:44,243 - NewCamWithArrayZMQ - INFO - sdfd
+2020-12-14 02:44:44,435 - NewCamWithArrayZMQ - INFO - sdfd
+2020-12-14 02:44:44,435 - NewCamWithArrayZMQ - INFO - sdfd
+2020-12-14 02:46:12,117 - NewCamWithArrayZMQ - WARNING - Initialisation not implemented
+2020-12-14 02:46:12,117 - NewCamWithArrayZMQ - WARNING - Initialisation not implemented
+2020-12-14 02:46:12,117 - NewCamWithArrayZMQ - WARNING - Initialisation not implemented
+2020-12-14 02:52:41,208 - NewCamWithArrayZMQ - WARNING - Initialisation not implemented
+2020-12-14 02:52:41,208 - NewCamWithArrayZMQ - WARNING - Initialisation not implemented
+2020-12-14 02:52:41,208 - NewCamWithArrayZMQ - WARNING - Initialisation not implemented
+2020-12-14 02:52:41,208 - NewCamWithArrayZMQ - WARNING - Initialisation not implemented
+2020-12-14 03:00:29,482 - NewCamWithArrayZMQ - WARNING - Initialisation not implemented
+2020-12-14 03:00:29,482 - NewCamWithArrayZMQ - WARNING - Initialisation not implemented
+2020-12-14 03:00:29,482 - NewCamWithArrayZMQ - WARNING - Initialisation not implemented
+2020-12-14 03:00:29,482 - NewCamWithArrayZMQ - WARNING - Initialisation not implemented
+2020-12-14 03:00:29,482 - NewCamWithArrayZMQ - WARNING - Initialisation not implemented
+2020-12-14 03:01:16,165 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    exec(code,globals(),locals())
+  File "<string>", line 7, in <module>
+  File ".\zmqSerialSocket.py", line 40, in send_array
+    self.send_json(md, flags | zmq.SNDMORE)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 742, in send_json
+    return self.send(msg, flags=flags, **send_kwargs)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 491, in send
+    return super(Socket, self).send(data, flags=flags, copy=copy, track=track)
+  File "zmq\backend\cython\socket.pyx", line 720, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 767, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 247, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\socket.pyx", line 242, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\checkrc.pxd", line 28, in zmq.backend.cython.checkrc._check_rc
+zmq.error.ZMQError: Operation cannot be accomplished in current state
+
+2020-12-14 03:01:16,165 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    exec(code,globals(),locals())
+  File "<string>", line 7, in <module>
+  File ".\zmqSerialSocket.py", line 40, in send_array
+    self.send_json(md, flags | zmq.SNDMORE)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 742, in send_json
+    return self.send(msg, flags=flags, **send_kwargs)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 491, in send
+    return super(Socket, self).send(data, flags=flags, copy=copy, track=track)
+  File "zmq\backend\cython\socket.pyx", line 720, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 767, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 247, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\socket.pyx", line 242, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\checkrc.pxd", line 28, in zmq.backend.cython.checkrc._check_rc
+zmq.error.ZMQError: Operation cannot be accomplished in current state
+
+2020-12-14 03:01:16,165 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    exec(code,globals(),locals())
+  File "<string>", line 7, in <module>
+  File ".\zmqSerialSocket.py", line 40, in send_array
+    self.send_json(md, flags | zmq.SNDMORE)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 742, in send_json
+    return self.send(msg, flags=flags, **send_kwargs)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 491, in send
+    return super(Socket, self).send(data, flags=flags, copy=copy, track=track)
+  File "zmq\backend\cython\socket.pyx", line 720, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 767, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 247, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\socket.pyx", line 242, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\checkrc.pxd", line 28, in zmq.backend.cython.checkrc._check_rc
+zmq.error.ZMQError: Operation cannot be accomplished in current state
+
+2020-12-14 03:01:16,165 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    exec(code,globals(),locals())
+  File "<string>", line 7, in <module>
+  File ".\zmqSerialSocket.py", line 40, in send_array
+    self.send_json(md, flags | zmq.SNDMORE)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 742, in send_json
+    return self.send(msg, flags=flags, **send_kwargs)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 491, in send
+    return super(Socket, self).send(data, flags=flags, copy=copy, track=track)
+  File "zmq\backend\cython\socket.pyx", line 720, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 767, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 247, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\socket.pyx", line 242, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\checkrc.pxd", line 28, in zmq.backend.cython.checkrc._check_rc
+zmq.error.ZMQError: Operation cannot be accomplished in current state
+
+2020-12-14 03:01:16,165 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    exec(code,globals(),locals())
+  File "<string>", line 7, in <module>
+  File ".\zmqSerialSocket.py", line 40, in send_array
+    self.send_json(md, flags | zmq.SNDMORE)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 742, in send_json
+    return self.send(msg, flags=flags, **send_kwargs)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 491, in send
+    return super(Socket, self).send(data, flags=flags, copy=copy, track=track)
+  File "zmq\backend\cython\socket.pyx", line 720, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 767, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 247, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\socket.pyx", line 242, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\checkrc.pxd", line 28, in zmq.backend.cython.checkrc._check_rc
+zmq.error.ZMQError: Operation cannot be accomplished in current state
+
+2020-12-14 03:01:30,788 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    exec(code,globals(),locals())
+  File "<string>", line 7, in <module>
+  File ".\zmqSerialSocket.py", line 40, in send_array
+    self.send_json(md, flags | zmq.SNDMORE)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 742, in send_json
+    return self.send(msg, flags=flags, **send_kwargs)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 491, in send
+    return super(Socket, self).send(data, flags=flags, copy=copy, track=track)
+  File "zmq\backend\cython\socket.pyx", line 720, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 767, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 247, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\socket.pyx", line 242, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\checkrc.pxd", line 28, in zmq.backend.cython.checkrc._check_rc
+zmq.error.ZMQError: Operation cannot be accomplished in current state
+
+2020-12-14 03:01:30,788 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    exec(code,globals(),locals())
+  File "<string>", line 7, in <module>
+  File ".\zmqSerialSocket.py", line 40, in send_array
+    self.send_json(md, flags | zmq.SNDMORE)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 742, in send_json
+    return self.send(msg, flags=flags, **send_kwargs)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 491, in send
+    return super(Socket, self).send(data, flags=flags, copy=copy, track=track)
+  File "zmq\backend\cython\socket.pyx", line 720, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 767, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 247, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\socket.pyx", line 242, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\checkrc.pxd", line 28, in zmq.backend.cython.checkrc._check_rc
+zmq.error.ZMQError: Operation cannot be accomplished in current state
+
+2020-12-14 03:01:30,788 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    exec(code,globals(),locals())
+  File "<string>", line 7, in <module>
+  File ".\zmqSerialSocket.py", line 40, in send_array
+    self.send_json(md, flags | zmq.SNDMORE)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 742, in send_json
+    return self.send(msg, flags=flags, **send_kwargs)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 491, in send
+    return super(Socket, self).send(data, flags=flags, copy=copy, track=track)
+  File "zmq\backend\cython\socket.pyx", line 720, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 767, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 247, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\socket.pyx", line 242, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\checkrc.pxd", line 28, in zmq.backend.cython.checkrc._check_rc
+zmq.error.ZMQError: Operation cannot be accomplished in current state
+
+2020-12-14 03:01:30,788 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    exec(code,globals(),locals())
+  File "<string>", line 7, in <module>
+  File ".\zmqSerialSocket.py", line 40, in send_array
+    self.send_json(md, flags | zmq.SNDMORE)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 742, in send_json
+    return self.send(msg, flags=flags, **send_kwargs)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 491, in send
+    return super(Socket, self).send(data, flags=flags, copy=copy, track=track)
+  File "zmq\backend\cython\socket.pyx", line 720, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 767, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 247, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\socket.pyx", line 242, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\checkrc.pxd", line 28, in zmq.backend.cython.checkrc._check_rc
+zmq.error.ZMQError: Operation cannot be accomplished in current state
+
+2020-12-14 03:01:30,788 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    exec(code,globals(),locals())
+  File "<string>", line 7, in <module>
+  File ".\zmqSerialSocket.py", line 40, in send_array
+    self.send_json(md, flags | zmq.SNDMORE)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 742, in send_json
+    return self.send(msg, flags=flags, **send_kwargs)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 491, in send
+    return super(Socket, self).send(data, flags=flags, copy=copy, track=track)
+  File "zmq\backend\cython\socket.pyx", line 720, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 767, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 247, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\socket.pyx", line 242, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\checkrc.pxd", line 28, in zmq.backend.cython.checkrc._check_rc
+zmq.error.ZMQError: Operation cannot be accomplished in current state
+
+2020-12-14 03:01:51,300 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    exec(code,globals(),locals())
+  File "<string>", line 8, in <module>
+  File ".\zmqSerialSocket.py", line 40, in send_array
+    self.send_json(md, flags | zmq.SNDMORE)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 742, in send_json
+    return self.send(msg, flags=flags, **send_kwargs)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 491, in send
+    return super(Socket, self).send(data, flags=flags, copy=copy, track=track)
+  File "zmq\backend\cython\socket.pyx", line 720, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 767, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 247, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\socket.pyx", line 242, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\checkrc.pxd", line 28, in zmq.backend.cython.checkrc._check_rc
+zmq.error.ZMQError: Operation cannot be accomplished in current state
+
+2020-12-14 03:01:51,300 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    exec(code,globals(),locals())
+  File "<string>", line 8, in <module>
+  File ".\zmqSerialSocket.py", line 40, in send_array
+    self.send_json(md, flags | zmq.SNDMORE)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 742, in send_json
+    return self.send(msg, flags=flags, **send_kwargs)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 491, in send
+    return super(Socket, self).send(data, flags=flags, copy=copy, track=track)
+  File "zmq\backend\cython\socket.pyx", line 720, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 767, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 247, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\socket.pyx", line 242, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\checkrc.pxd", line 28, in zmq.backend.cython.checkrc._check_rc
+zmq.error.ZMQError: Operation cannot be accomplished in current state
+
+2020-12-14 03:01:51,300 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    exec(code,globals(),locals())
+  File "<string>", line 8, in <module>
+  File ".\zmqSerialSocket.py", line 40, in send_array
+    self.send_json(md, flags | zmq.SNDMORE)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 742, in send_json
+    return self.send(msg, flags=flags, **send_kwargs)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 491, in send
+    return super(Socket, self).send(data, flags=flags, copy=copy, track=track)
+  File "zmq\backend\cython\socket.pyx", line 720, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 767, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 247, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\socket.pyx", line 242, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\checkrc.pxd", line 28, in zmq.backend.cython.checkrc._check_rc
+zmq.error.ZMQError: Operation cannot be accomplished in current state
+
+2020-12-14 03:01:51,300 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    exec(code,globals(),locals())
+  File "<string>", line 8, in <module>
+  File ".\zmqSerialSocket.py", line 40, in send_array
+    self.send_json(md, flags | zmq.SNDMORE)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 742, in send_json
+    return self.send(msg, flags=flags, **send_kwargs)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 491, in send
+    return super(Socket, self).send(data, flags=flags, copy=copy, track=track)
+  File "zmq\backend\cython\socket.pyx", line 720, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 767, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 247, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\socket.pyx", line 242, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\checkrc.pxd", line 28, in zmq.backend.cython.checkrc._check_rc
+zmq.error.ZMQError: Operation cannot be accomplished in current state
+
+2020-12-14 03:01:51,300 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    exec(code,globals(),locals())
+  File "<string>", line 8, in <module>
+  File ".\zmqSerialSocket.py", line 40, in send_array
+    self.send_json(md, flags | zmq.SNDMORE)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 742, in send_json
+    return self.send(msg, flags=flags, **send_kwargs)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 491, in send
+    return super(Socket, self).send(data, flags=flags, copy=copy, track=track)
+  File "zmq\backend\cython\socket.pyx", line 720, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 767, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 247, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\socket.pyx", line 242, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\checkrc.pxd", line 28, in zmq.backend.cython.checkrc._check_rc
+zmq.error.ZMQError: Operation cannot be accomplished in current state
+
+2020-12-14 03:02:04,233 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    exec(code,globals(),locals())
+  File "<string>", line 8, in <module>
+  File ".\zmqSerialSocket.py", line 40, in send_array
+    self.send_json(md, flags | zmq.SNDMORE)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 742, in send_json
+    return self.send(msg, flags=flags, **send_kwargs)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 491, in send
+    return super(Socket, self).send(data, flags=flags, copy=copy, track=track)
+  File "zmq\backend\cython\socket.pyx", line 720, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 767, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 247, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\socket.pyx", line 242, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\checkrc.pxd", line 28, in zmq.backend.cython.checkrc._check_rc
+zmq.error.ZMQError: Operation cannot be accomplished in current state
+
+2020-12-14 03:02:04,233 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    exec(code,globals(),locals())
+  File "<string>", line 8, in <module>
+  File ".\zmqSerialSocket.py", line 40, in send_array
+    self.send_json(md, flags | zmq.SNDMORE)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 742, in send_json
+    return self.send(msg, flags=flags, **send_kwargs)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 491, in send
+    return super(Socket, self).send(data, flags=flags, copy=copy, track=track)
+  File "zmq\backend\cython\socket.pyx", line 720, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 767, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 247, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\socket.pyx", line 242, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\checkrc.pxd", line 28, in zmq.backend.cython.checkrc._check_rc
+zmq.error.ZMQError: Operation cannot be accomplished in current state
+
+2020-12-14 03:02:04,233 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    exec(code,globals(),locals())
+  File "<string>", line 8, in <module>
+  File ".\zmqSerialSocket.py", line 40, in send_array
+    self.send_json(md, flags | zmq.SNDMORE)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 742, in send_json
+    return self.send(msg, flags=flags, **send_kwargs)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 491, in send
+    return super(Socket, self).send(data, flags=flags, copy=copy, track=track)
+  File "zmq\backend\cython\socket.pyx", line 720, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 767, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 247, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\socket.pyx", line 242, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\checkrc.pxd", line 28, in zmq.backend.cython.checkrc._check_rc
+zmq.error.ZMQError: Operation cannot be accomplished in current state
+
+2020-12-14 03:02:04,233 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    exec(code,globals(),locals())
+  File "<string>", line 8, in <module>
+  File ".\zmqSerialSocket.py", line 40, in send_array
+    self.send_json(md, flags | zmq.SNDMORE)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 742, in send_json
+    return self.send(msg, flags=flags, **send_kwargs)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 491, in send
+    return super(Socket, self).send(data, flags=flags, copy=copy, track=track)
+  File "zmq\backend\cython\socket.pyx", line 720, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 767, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 247, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\socket.pyx", line 242, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\checkrc.pxd", line 28, in zmq.backend.cython.checkrc._check_rc
+zmq.error.ZMQError: Operation cannot be accomplished in current state
+
+2020-12-14 03:02:04,233 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    exec(code,globals(),locals())
+  File "<string>", line 8, in <module>
+  File ".\zmqSerialSocket.py", line 40, in send_array
+    self.send_json(md, flags | zmq.SNDMORE)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 742, in send_json
+    return self.send(msg, flags=flags, **send_kwargs)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 491, in send
+    return super(Socket, self).send(data, flags=flags, copy=copy, track=track)
+  File "zmq\backend\cython\socket.pyx", line 720, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 767, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 247, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\socket.pyx", line 242, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\checkrc.pxd", line 28, in zmq.backend.cython.checkrc._check_rc
+zmq.error.ZMQError: Operation cannot be accomplished in current state
+
+2020-12-14 03:02:05,025 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    exec(code,globals(),locals())
+  File "<string>", line 8, in <module>
+  File ".\zmqSerialSocket.py", line 40, in send_array
+    self.send_json(md, flags | zmq.SNDMORE)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 742, in send_json
+    return self.send(msg, flags=flags, **send_kwargs)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 491, in send
+    return super(Socket, self).send(data, flags=flags, copy=copy, track=track)
+  File "zmq\backend\cython\socket.pyx", line 720, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 767, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 247, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\socket.pyx", line 242, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\checkrc.pxd", line 28, in zmq.backend.cython.checkrc._check_rc
+zmq.error.ZMQError: Operation cannot be accomplished in current state
+
+2020-12-14 03:02:05,025 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    exec(code,globals(),locals())
+  File "<string>", line 8, in <module>
+  File ".\zmqSerialSocket.py", line 40, in send_array
+    self.send_json(md, flags | zmq.SNDMORE)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 742, in send_json
+    return self.send(msg, flags=flags, **send_kwargs)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 491, in send
+    return super(Socket, self).send(data, flags=flags, copy=copy, track=track)
+  File "zmq\backend\cython\socket.pyx", line 720, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 767, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 247, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\socket.pyx", line 242, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\checkrc.pxd", line 28, in zmq.backend.cython.checkrc._check_rc
+zmq.error.ZMQError: Operation cannot be accomplished in current state
+
+2020-12-14 03:02:05,025 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    exec(code,globals(),locals())
+  File "<string>", line 8, in <module>
+  File ".\zmqSerialSocket.py", line 40, in send_array
+    self.send_json(md, flags | zmq.SNDMORE)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 742, in send_json
+    return self.send(msg, flags=flags, **send_kwargs)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 491, in send
+    return super(Socket, self).send(data, flags=flags, copy=copy, track=track)
+  File "zmq\backend\cython\socket.pyx", line 720, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 767, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 247, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\socket.pyx", line 242, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\checkrc.pxd", line 28, in zmq.backend.cython.checkrc._check_rc
+zmq.error.ZMQError: Operation cannot be accomplished in current state
+
+2020-12-14 03:02:05,025 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    exec(code,globals(),locals())
+  File "<string>", line 8, in <module>
+  File ".\zmqSerialSocket.py", line 40, in send_array
+    self.send_json(md, flags | zmq.SNDMORE)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 742, in send_json
+    return self.send(msg, flags=flags, **send_kwargs)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 491, in send
+    return super(Socket, self).send(data, flags=flags, copy=copy, track=track)
+  File "zmq\backend\cython\socket.pyx", line 720, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 767, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 247, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\socket.pyx", line 242, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\checkrc.pxd", line 28, in zmq.backend.cython.checkrc._check_rc
+zmq.error.ZMQError: Operation cannot be accomplished in current state
+
+2020-12-14 03:02:05,025 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    exec(code,globals(),locals())
+  File "<string>", line 8, in <module>
+  File ".\zmqSerialSocket.py", line 40, in send_array
+    self.send_json(md, flags | zmq.SNDMORE)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 742, in send_json
+    return self.send(msg, flags=flags, **send_kwargs)
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 491, in send
+    return super(Socket, self).send(data, flags=flags, copy=copy, track=track)
+  File "zmq\backend\cython\socket.pyx", line 720, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 767, in zmq.backend.cython.socket.Socket.send
+  File "zmq\backend\cython\socket.pyx", line 247, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\socket.pyx", line 242, in zmq.backend.cython.socket._send_copy
+  File "zmq\backend\cython\checkrc.pxd", line 28, in zmq.backend.cython.checkrc._check_rc
+zmq.error.ZMQError: Operation cannot be accomplished in current state
+
+2020-12-14 03:05:56,843 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    try:
+  File "<string>", line 1
+    self.frameSendQ = zmqArrayContext.socket(zmq.PAIR)
+    ^
+IndentationError: unexpected indent
+
+2020-12-14 03:05:56,843 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    try:
+  File "<string>", line 1
+    self.frameSendQ = zmqArrayContext.socket(zmq.PAIR)
+    ^
+IndentationError: unexpected indent
+
+2020-12-14 03:05:56,843 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    try:
+  File "<string>", line 1
+    self.frameSendQ = zmqArrayContext.socket(zmq.PAIR)
+    ^
+IndentationError: unexpected indent
+
+2020-12-14 03:05:56,843 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    try:
+  File "<string>", line 1
+    self.frameSendQ = zmqArrayContext.socket(zmq.PAIR)
+    ^
+IndentationError: unexpected indent
+
+2020-12-14 03:05:56,843 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    try:
+  File "<string>", line 1
+    self.frameSendQ = zmqArrayContext.socket(zmq.PAIR)
+    ^
+IndentationError: unexpected indent
+
+2020-12-14 03:06:27,576 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    try:
+  File "<string>", line 3, in <module>
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 173, in bind
+    super().bind(addr)
+  File "zmq\backend\cython\socket.pyx", line 542, in zmq.backend.cython.socket.Socket.bind
+  File "zmq\backend\cython\checkrc.pxd", line 28, in zmq.backend.cython.checkrc._check_rc
+zmq.error.ZMQError: Address in use
+
+2020-12-14 03:06:27,576 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    try:
+  File "<string>", line 3, in <module>
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 173, in bind
+    super().bind(addr)
+  File "zmq\backend\cython\socket.pyx", line 542, in zmq.backend.cython.socket.Socket.bind
+  File "zmq\backend\cython\checkrc.pxd", line 28, in zmq.backend.cython.checkrc._check_rc
+zmq.error.ZMQError: Address in use
+
+2020-12-14 03:06:27,576 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    try:
+  File "<string>", line 3, in <module>
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 173, in bind
+    super().bind(addr)
+  File "zmq\backend\cython\socket.pyx", line 542, in zmq.backend.cython.socket.Socket.bind
+  File "zmq\backend\cython\checkrc.pxd", line 28, in zmq.backend.cython.checkrc._check_rc
+zmq.error.ZMQError: Address in use
+
+2020-12-14 03:06:27,576 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    try:
+  File "<string>", line 3, in <module>
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 173, in bind
+    super().bind(addr)
+  File "zmq\backend\cython\socket.pyx", line 542, in zmq.backend.cython.socket.Socket.bind
+  File "zmq\backend\cython\checkrc.pxd", line 28, in zmq.backend.cython.checkrc._check_rc
+zmq.error.ZMQError: Address in use
+
+2020-12-14 03:06:27,576 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    try:
+  File "<string>", line 3, in <module>
+  File "C:\tools\miniconda3\envs\vmpw\lib\site-packages\zmq\sugar\socket.py", line 173, in bind
+    super().bind(addr)
+  File "zmq\backend\cython\socket.pyx", line 542, in zmq.backend.cython.socket.Socket.bind
+  File "zmq\backend\cython\checkrc.pxd", line 28, in zmq.backend.cython.checkrc._check_rc
+zmq.error.ZMQError: Address in use
+
+2020-12-14 03:12:49,440 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    def run(self,code,exlocals={}):
+  File "<string>", line 10, in <module>
+NameError: name 'threadind' is not defined
+
+2020-12-14 03:12:49,440 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    def run(self,code,exlocals={}):
+  File "<string>", line 10, in <module>
+NameError: name 'threadind' is not defined
+
+2020-12-14 03:12:49,440 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    def run(self,code,exlocals={}):
+  File "<string>", line 10, in <module>
+NameError: name 'threadind' is not defined
+
+2020-12-14 03:12:49,440 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    def run(self,code,exlocals={}):
+  File "<string>", line 10, in <module>
+NameError: name 'threadind' is not defined
+
+2020-12-14 03:12:49,440 - NewCamWithArrayZMQ - ERROR - Traceback (most recent call last):
+  File ".\monitor.py", line 233, in run
+    def run(self,code,exlocals={}):
+  File "<string>", line 10, in <module>
+NameError: name 'threadind' is not defined
+

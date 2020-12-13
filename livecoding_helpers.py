@@ -1,23 +1,23 @@
 print ("Hello Dan's livecoding helpers")
-
 import os
 import sys
 sys.path.append('.')
 
 import numpy as np
-
 import importlib as il
 
 def preview(image):
     previewName(image,'Preview')
 
-def previewName(image,name):
+from PIL import Image
+def drawImg(img,mode='RGB'):
+    return Image.fromarray(img).convert(mode)
+
+def cvshow(name,image):
     import cv2
     cv2.namedWindow(name)
     cv2.imshow(name,image)
     cv2.waitKey(100)
-
-import PyQt5
 
 def execfile(file,globs):
     global __name__
@@ -48,11 +48,13 @@ patch=mPatcher().m_patch
 import pprint
 pp=pprint.pprint
 
+import traceback
 
-def exception_handler(func):
-    def inner_function(*args, **kwargs):
-        try:
-            func(*args, **kwargs)
-        except TypeError:
-            print(f"{func.__name__} only takes numbers as the argument")
-    return inner_function
+def addToGlobs(module):
+    for key in dir(module):
+        globals()[key]=getattr(module,key)    
+
+def r2g(module):
+    import importlib as il
+    il.reload(module)
+    addToGlobs(module)

@@ -8,6 +8,8 @@ uniform vec2 iMouse;
 uniform float iControlChannels[32];
 uniform vec4 iControlButtons[4];
 
+uniform float iAudioBuffer[512];
+uniform float iFFT[512];
 #define STEP_COUNT 10
 
 //just basic clouds from perlin noise

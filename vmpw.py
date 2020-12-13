@@ -23,6 +23,12 @@ gl1=glw.vmpw_GL(None)
 gl1.liveMap=usDev
 gl1.go()
 
+#uniform setting
+def setControlChannel(i,val):
+    global us
+    gl.glUniform1fv(gl.glGetUniformLocation(
+        us.program.handle,'iControlChannels')+i,1,val
+        )
 
 #Midi
 import vmpwMidiPort as midi;il.reload(midi)
@@ -65,12 +71,6 @@ def midiCallBack(self,message):
         )
     
 mwidge=midi.vmpwMidiWidget(callback=midiCallBack)
-
-
-gl.glUseProgram(us.program.handle);
-gl.glUniform1fv(
-    gl.glGetUniformLocation(us.program.handle,'iControlChannels'),
-    32,np.random.rand(32));
 
 ## Set up OSC Server
 
