@@ -44,7 +44,7 @@ class rv_MonitorWidget(QWidget):
 
         # Image and Array Monitor Queue
         self.frameGetQ = zmqArrayContext.socket(zmq.PAIR)
-        address=f'inproc://{self.name}_FrameSockPair2'
+        address=f'inproc://{self.name}_FrameSockPair'
         self.frameGetQ.connect(address)
 
         #Tick Timer
@@ -109,13 +109,16 @@ class rv_MonitorWidget(QWidget):
 
     def pollFrame(self):
         while self.frameGetQ.poll( timeout = 1)> 0:
-            print("Getting Frame")
-            imdata=self.frameGetQ.recv_array(copy=False)
-            self.imdata=imdata
-            self.im=QImage(imdata,imdata.shape[1],imdata.shape[0],QImage.Format_RGB888)
-            self.pxm=QPixmap.fromImage(self.im)
-            self.stateView.setPixmap(self.pxm)
-            
+            try:            
+                imdata=self.frameGetQ.recv_array(copy=False)
+                self.imdata=imdata
+                self.im=QImage(imdata,imdata.shape[1],imdata.shape[0],QImage.Format_RGB888)
+                self.pxm=QPixmap.fromImage(self.im)
+                self.stateView.setPixmap(self.pxm)
+            except Exception as e:
+                self.monitorable.logerror(traceback.format_exc())
+                print(traceback.format_exc())
+
     def pollLogQueue(self):
         while self.logQ.poll( timeout = 1 ) > 0:
             msg=self.logQ.recv_string()
@@ -339,6 +342,7 @@ class reTestPete(rv_MonitorableRepeatable):
             except Exception as e:
                 self.logerror(traceback.format_exc())
 
+import cv2
 class webcamViewer(rv_MonitorableRepeatable):
     def __init__(self,**kwargs):
         super().__init__(**kwargs)
@@ -347,6 +351,25 @@ class webcamViewer(rv_MonitorableRepeatable):
     def initialize(self, **initArgs):
         self.vid=cv2.VideoCapture()
         self.vid.open(0)
+        self.widget.codeBox.setText('''    
+#Run Capture
+def cap(self):
+	for i in range(32):
+
+        ## Event Handling Goes Here!
+        ### ...pollMessages...
+        ### ...interpretControls...
+
+		self.imdata=np.ascontiguousarray(np.flip(self.vid.read()[1],-1))
+		imdata=self.imdata
+	#self.im=QImage(imdata,imdata.shape[1],imdata.shape[0],QImage.Format_RGB888)
+	#self.pxm=QPixmap.fromImage(self.im)
+	#self.widget.stateView.setPixmap(self.pxm)
+		self.frameSendQ.send_array(imdata,copy=False)
+threading.Thread(target=cap,args=(self,)).start()
+''')
+        self.widget.codeSplitter.show()
+        self.runCode()
 
 class rv_inferenceThread(rv_MonitorableThread):
     '''
