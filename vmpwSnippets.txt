@@ -96,7 +96,6 @@ self.widget.frameGetQ.connect(address)
 self.frameSendQ = zmqArrayContext.socket(zmq.PAIR)
 address=f'inproc://{self.name}_FrameSockPair2'
 self.frameSendQ.bind(address)
-
 self.widget.frameGetQ = zmqArrayContext.socket(zmq.PAIR)
 self.widget.frameGetQ.connect(address)
 

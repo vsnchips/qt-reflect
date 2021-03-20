@@ -1,27 +1,10 @@
-import rtmidi
-from rtmidi import midiutil
 
-import threading
 import time
 
-theLock = threading.Lock()
-global_running = True
-
-
-inport = None
-
 from livecoding_helpers import exception_handler
-
-def midi_error(error,foo,bar):
-	[print( m) for m in (error,foo,bar)]
-
-
-
 from qtpy.QtWidgets import QWidget,QVBoxLayout,QPushButton,QTextEdit,QLabel
 from qtpy.QtCore import QTimer
-
 from functools import partial
-
 
 def default_message_callback(self,message):
 	self.messageBox.setText(
@@ -36,7 +19,8 @@ class vmpwMidiWidget(QWidget):
 
 		self.setWindowTitle('vmpw Midi Reader')
 		self.layout=QVBoxLayout(self)
-		self.refreshButton=QPushButton("List Midi In Ports")
+		
+        self.refreshButton=QPushButton("Exec Initialisation")
 		self.refreshButton.clicked.connect(self.listMidiIns)
 		self.layout.addWidget(self.refreshButton)
 		
@@ -49,12 +33,6 @@ class vmpwMidiWidget(QWidget):
 		self.inport=None
 		self.inputButtons=[]
 		_i=0
-		for port in self.listMidiIns(): 
-			button=QPushButton(str(port))
-			button.clicked.connect( lambda:self.set_input(1) )
-			_i=_i+1
-			self.layout.addWidget(button)
-			self.inputButtons.append(button)
 		self.i=None
 
 		#Monitor
@@ -106,7 +84,6 @@ class vmpwMidiWidget(QWidget):
 		except Exception as e:
 			print(e)
 		return None
-
 
 	def closeEvent(self,event):
 		self.ins.close_port()

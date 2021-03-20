@@ -34,7 +34,7 @@ float clouds( in vec2 q, in float tm )
 
 float getPattern(vec2 uv) {
     //this can be any pattern but moving patterns work best
-    float w=clouds(uv*5.0, iGlobalTime*0.5);
+    float w=clouds(uv*5.0, time*0.5);
     return w;
 }
 

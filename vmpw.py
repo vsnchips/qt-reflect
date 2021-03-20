@@ -26,6 +26,7 @@ gl1.go()
 #uniform setting
 def setControlChannel(i,val):
     global us
+    gl.glUseProgram(us.program.handle)
     gl.glUniform1fv(gl.glGetUniformLocation(
         us.program.handle,'iControlChannels')+i,1,val
         )
