@@ -5,7 +5,6 @@ Created on Sat Dec  5 16:15:56 2020
 @author: tonup
 """
 
-# Set the QT API to PyQt4
 import os,sys
 
 # Import the console machinery from ipython
@@ -13,14 +12,11 @@ from qtconsole.rich_ipython_widget import RichIPythonWidget
 from qtconsole.inprocess import QtInProcessKernelManager
 from IPython.lib import guisupport
 
-os.environ['QT_API'] = 'pyqt'
+os.environ['QT_API'] = 'PyQt5'
+#os.environ['QT_API'] = 'pyqt'
 
 from livecoding_helpers import *
 
-
-#import sip
-#sip.setapi("QString", 2)
-#sip.setapi("QVariant", 2)
 from PyQt5.QtGui  import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
@@ -71,10 +67,9 @@ class ExampleWidget(QWidget):
 
 class DevWidget(ExampleWidget):
     def __init__(self, parent=None,file=None):
-        super(DevWidget,self).__init__(parent)
+        super(DevWidget,self).__init__(parent=parent)
         
-
-        self.setWindowTitle('pySpiel Live Console')
+        self.setWindowTitle('Live Console')
 
         rootCons = self.ipyConsole
         rootWidget = self
@@ -88,9 +83,10 @@ class DevWidget(ExampleWidget):
                         "selection-color: yellow;"
                         "selection-background-color: brown;"
                         )
-        rootCons.execute('from vmpw import *')
+
+        workScript=open(file,'r').read()
         rootCons.pushVariables(dict(globals(),**locals()))
-        #rootCons.execute('rootCons.change_font_size(7)')
+        rootCons.execute(workScript)
 
 
 def print_process_id():
@@ -100,11 +96,14 @@ widget=None
 def main():
     QCoreApplication.setAttribute(Qt.AA_ShareOpenGLContexts)
     app  = QApplication([])
-    widget = DevWidget()
+    
+    startScript = None
+    if (len(sys.argv) > 1 ):
+        startScript = sys.argv[1] 
+    widget = DevWidget(file=startScript)
     widget.show()
     app.exec_()    
 
 if __name__ == '__main__':
-    
     foo='bar'
     main()

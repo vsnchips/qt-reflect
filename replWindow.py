@@ -3,10 +3,9 @@ from pyqode.core.widgets import TextCodeEdit
 editor = TextCodeEdit()
 editor.show()
 
-print('foo')
 def execute(state):
     global rootCons
-    code = state.textCursor().selectedText().replace('\u2029\,'\n')
+    code = state.textCursor().selectedText().replace('\u2029','\n')
     rootCons.execute(code)
     from pyqode.core.widgets import TextCodeEdit
 
