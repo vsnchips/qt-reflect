@@ -1,0 +1,3 @@
+[submodule "pyNDI"]
+	path = pyNDI
+	url = https://github.com/CarlosFdez/pyNDI

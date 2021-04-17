@@ -23,6 +23,7 @@ from livecoding_helpers import *
 #sip.setapi("QVariant", 2)
 from PyQt5.QtGui  import *
 from PyQt5.QtWidgets import *
+from PyQt5.QtCore import *
 
 class QIPythonWidget(RichIPythonWidget):
     """ Convenience class for a live IPython console widget. We can replace the standard banner using the customBanner argument"""
@@ -89,7 +90,7 @@ class DevWidget(ExampleWidget):
                         )
         rootCons.execute('from vmpw import *')
         rootCons.pushVariables(dict(globals(),**locals()))
-        rootCons.execute('rootCons.change_font_size(7)')
+        #rootCons.execute('rootCons.change_font_size(7)')
 
 
 def print_process_id():
@@ -97,6 +98,7 @@ def print_process_id():
 
 widget=None
 def main():
+    QCoreApplication.setAttribute(Qt.AA_ShareOpenGLContexts)
     app  = QApplication([])
     widget = DevWidget()
     widget.show()

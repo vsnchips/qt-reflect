@@ -16,3 +16,4 @@ torch >= 1.4.0
 torchvision
 opencv-python
 tensorboard >= 1.14
+pyode.pythpn == 2.12.1
