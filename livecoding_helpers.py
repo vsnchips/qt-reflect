@@ -24,17 +24,6 @@ def execfile(file,globs):
     __name__='__mp_main__'
     script= open(file,'r').read()
     exec(script,globs,locals())
-    
-'''
-if (__name__ == '__main__'):
-    import sys
-    import importlib as il
-    il.invalidate_caches()
-    mod=il.import_module(sys.argv[1])
-    for thing in dir(mod):
-        globals()[thing] = getattr(mod,thing)
-    __name__ = 'live_interpreter'
-'''
 
 class mPatcher:
     @classmethod

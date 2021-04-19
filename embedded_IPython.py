@@ -1,27 +1,25 @@
 # -*- coding: utf-8 -*-
 """
 Created on Sat Dec  5 16:15:56 2020
-
-@author: tonup
+@author: Dan Aston
 """
 
 import os,sys
 
 # Import the console machinery from ipython
-from qtconsole.rich_ipython_widget import RichIPythonWidget
+from qtconsole.rich_jupyter_widget import RichJupyterWidget
 from qtconsole.inprocess import QtInProcessKernelManager
 from IPython.lib import guisupport
 
 os.environ['QT_API'] = 'PyQt5'
-#os.environ['QT_API'] = 'pyqt'
-
-from livecoding_helpers import *
-
 from PyQt5.QtGui  import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 
-class QIPythonWidget(RichIPythonWidget):
+from livecoding_helpers import *
+from devBox import * 
+
+class QIPythonWidget(RichJupyterWidget):
     """ Convenience class for a live IPython console widget. We can replace the standard banner using the customBanner argument"""
     def __init__(self,customBanner=None,*args,**kwargs):
         if not customBanner is None: self.banner=customBanner
@@ -51,26 +49,27 @@ class QIPythonWidget(RichIPythonWidget):
         """ Execute a command in the frame of the console widget """
         self._execute(command,False)
 
+rootCons=None
+rootWidget=None
 
-class ExampleWidget(QWidget):
-    """ Main GUI Widget including a button and IPython Console widget inside vertical layout """
-    def __init__(self, parent=None):
-        super(ExampleWidget, self).__init__(parent)
-        layout = QVBoxLayout(self)
-        self.button = QPushButton('Another widget')
-        self.ipyConsole = QIPythonWidget(customBanner="Welcome to the embedded ipython console\n")
-        layout.addWidget(self.button)
-        layout.addWidget(self.ipyConsole)        
-        # This allows the variable foo and method print_process_id to be accessed from the ipython console
-        self.ipyConsole.pushVariables({"foo":43,"print_process_id":print_process_id})
-        self.ipyConsole.printText("The variable 'foo' and the method 'print_process_id()' are available. Use the 'whos' command for information.")                           
+gTEst = None
 
-class DevWidget(ExampleWidget):
-    def __init__(self, parent=None,file=None):
-        super(DevWidget,self).__init__(parent=parent)
+class LiveConsole(QWidget):
+    def __init__(self, parent=None,workFile=None):
         
-        self.setWindowTitle('Live Console')
+        ''' The LiveConsole is an ipython interpreter window which shares the global namespace with this module. '''
+        super(LiveConsole,self).__init__(parent=parent)
+        
+        #lLayout
+        layout = QVBoxLayout(self)
+        self.ipyConsole = QIPythonWidget(customBanner="Welcome to the embedded ipython console\n")
+        layout.addWidget(self.ipyConsole)        
+        self.ipyConsole.printText("Hello Qt Embedded IPython")                           
 
+        #Styling
+        self.setWindowTitle('Live Console')
+        
+        global rootCons,rootWidget
         rootCons = self.ipyConsole
         rootWidget = self
         rootWidget.setStyleSheet("color: white;"
@@ -84,24 +83,39 @@ class DevWidget(ExampleWidget):
                         "selection-background-color: brown;"
                         )
 
-        workScript=open(file,'r').read()
-        rootCons.pushVariables(dict(globals(),**locals()))
-        rootCons.execute(workScript)
+        # Loading the work script
+        workScript=None
+        if (workFile): workScript=open(workFile,'r').read()
 
+        # Scope Sharing
+        rootCons.pushVariables(dict(globals(),**locals()))    
+    
+        global gTest
+        gTest=10
+
+        self.newState = "boom"
+        if (workScript):rootCons.execute(workScript)
 
 def print_process_id():
     print ('Process ID is:', os.getpid() )       
 
 widget=None
+
 def main():
+
+    global globalTest
+    globalTest=20
     QCoreApplication.setAttribute(Qt.AA_ShareOpenGLContexts)
     app  = QApplication([])
     
     startScript = None
     if (len(sys.argv) > 1 ):
         startScript = sys.argv[1] 
-    widget = DevWidget(file=startScript)
+    widget = LiveConsole(workFile=startScript)
     widget.show()
+
+    globalTest=10
+    
     app.exec_()    
 
 if __name__ == '__main__':
