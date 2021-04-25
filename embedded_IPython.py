@@ -6,6 +6,8 @@ Created on Sat Dec  5 16:15:56 2020
 
 import os,sys
 
+sys.path.append(os.path.realpath('.'))
+
 # Import the console machinery from ipython
 from qtconsole.rich_jupyter_widget import RichJupyterWidget
 from qtconsole.inprocess import QtInProcessKernelManager
@@ -100,7 +102,6 @@ def print_process_id():
     print ('Process ID is:', os.getpid() )       
 
 widget=None
-
 def main():
 
     global globalTest
@@ -119,5 +120,4 @@ def main():
     app.exec_()    
 
 if __name__ == '__main__':
-    foo='bar'
     main()

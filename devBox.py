@@ -70,6 +70,7 @@ def liveEditorFactory(name='liveEdit',rootCons=None):
     def withLiveEditorDecorator(baseClass,name=name):
 
         ''' Returned decorator definition. Passes Factory arguments (name & rootCons) through kwargs '''
+        # (I think this is a bit messy but it works. TODO: review this. )
 
         class liveVersion(baseClass):
             def __init__(self,scopeConsole=None,*args,_name=name,rootCons=rootCons,**kwargs):
@@ -81,6 +82,7 @@ def liveEditorFactory(name='liveEdit',rootCons=None):
                     _name = baseClass.__str__()
                 self.editor.setWindowTitle(_name)
 
+                #If the hackable class is a QWidget, put it in a split with the liveEditor
                 if (issubclass(baseClass,QWidget)):
                     try:
                         layout=self.layout()
@@ -104,5 +106,42 @@ def liveEditorFactory(name='liveEdit',rootCons=None):
             def linkConsole(self,console):
                 self.editor.scopeConsole = console
         return liveVersion
-
     return withLiveEditorDecorator
+
+# To put an object into a dev window, construct the split container, construct its liveEditor, put them in the split, and put the split into its parents' layout. 
+def liveDevify(self,rootCons=None):
+        self.editor = editor = liveEditor(scopeConsole=rootCons,overrideself=self)
+        
+        name=None
+        if (hasattr(self,"name")):
+            if self.name is not None:
+                name=self.name
+        if (name is None):
+            name = self.name = self.__str__()
+        self.editor.setWindowTitle(name)
+
+        #If the hackable class is a QWidget, put it in a split with the liveEditor
+        if (issubclass(self.__class__,QWidget)):
+            try:
+                layout=self.layout()
+                if(layout is not None):
+                    self.layout().addWidget(editor)
+                else:
+                    self.container=container=QWidget()
+                    container.setLayout(QHBoxLayout())
+                    qs=self.devSplitter=QSplitter(Qt.Horizontal)
+                    container.layout().addWidget(qs)
+                    
+                    qs.addWidget(editor)
+                    
+                    #Swap it in
+                    parent=self.parent()
+                    qs.addWidget(self)
+                    container.setParent(parent)
+                    container.show()
+                    
+            except:
+                exc = tb.format_exc()
+                print(exc)
+        editor.show()
+        self.show()
