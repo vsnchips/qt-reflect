@@ -18,8 +18,14 @@ from PyQt5.QtGui  import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 
+from PyQt5.QtWebEngine import *
+from PyQt5.QtWebEngineCore import *
+from PyQt5.QtWebEngineWidgets import *
+
 from livecoding_helpers import *
 from devBox import * 
+
+import pkg_resources
 
 class QIPythonWidget(RichJupyterWidget):
     """ Convenience class for a live IPython console widget. We can replace the standard banner using the customBanner argument"""
@@ -31,6 +37,9 @@ class QIPythonWidget(RichJupyterWidget):
         kernel_manager.kernel.gui = 'qt4'
         self.kernel_client = kernel_client = self._kernel_manager.client()
         kernel_client.start_channels()
+
+        self.syntax_style="monokai"
+
 
         def stop():
             kernel_client.stop_channels()
@@ -57,11 +66,11 @@ rootWidget=None
 gTEst = None
 
 class LiveConsole(QWidget):
-    def __init__(self, parent=None,workFile=None):
-        
+    def __init__(self, parent=None,workFile=None,liveApp=None):
+
         ''' The LiveConsole is an ipython interpreter window which shares the global namespace with this module. '''
         super(LiveConsole,self).__init__(parent=parent)
-        
+
         #lLayout
         layout = QVBoxLayout(self)
         self.ipyConsole = QIPythonWidget(customBanner="Welcome to the embedded ipython console\n")
@@ -70,53 +79,68 @@ class LiveConsole(QWidget):
 
         #Styling
         self.setWindowTitle('Live Console')
-        
+
         global rootCons,rootWidget
         rootCons = self.ipyConsole
         rootWidget = self
         rootWidget.setStyleSheet("color: white;"
-                        "background-color: #333333;"
-                        "selection-color: yellow;"
-                        "selection-background-color: brown;"
-                        )
+                "background-color: #333333;"
+                "selection-color: yellow;"
+                "selection-background-color: brown;"
+                "background:translucent"
+                )
         rootCons.setStyleSheet("color: white;"
-                        "background-color: dark-grey;"
-                        "selection-color: yellow;"
-                        "selection-background-color: brown;"
-                        )
+                "background-color: dark-grey;"
+                "selection-color: yellow;"
+                "selection-background-color: brown;"
+                "background:translucent"
+                )
 
-        # Loading the work script
+
+    # Loading the work script
         workScript=None
         if (workFile): workScript=open(workFile,'r').read()
 
         # Scope Sharing
+        app = liveApp
+        __name__ = "__interpreter__"
         rootCons.pushVariables(dict(globals(),**locals()))    
-    
-        global gTest
-        gTest=10
 
-        self.newState = "boom"
         if (workScript):rootCons.execute(workScript)
+
+        initScript='''#Monokai script
+for widget in self.children(): 
+    try:
+        widget.setStyleSheet(pkg_resources.resource_filename("jupyter_qtconsole_colorschemes","{}.css".format("monokai"))) 
+    except Exception as e:
+            tb.print_exc()
+            pass'''
+        rootCons.execute(initScript)
 
 def print_process_id():
     print ('Process ID is:', os.getpid() )       
 
 widget=None
+liveApp=None
+
 def main():
 
-    global globalTest
+    global globalTest, liveApp
+
     globalTest=20
     QCoreApplication.setAttribute(Qt.AA_ShareOpenGLContexts)
-    app  = QApplication([])
-    
+    app = QApplication([])
+
     startScript = None
     if (len(sys.argv) > 1 ):
         startScript = sys.argv[1] 
-    widget = LiveConsole(workFile=startScript)
+    widget = LiveConsole(workFile=startScript,liveApp=app)
+    widget.setStyleSheet("background:translucent")
+
     widget.show()
 
     globalTest=10
-    
+
     app.exec_()    
 
 if __name__ == '__main__':

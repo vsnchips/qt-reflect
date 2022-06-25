@@ -6,6 +6,12 @@ sys.path.append('.')
 import numpy as np
 import importlib as il
 
+import pprint
+pp=pprint.pprint
+import traceback
+
+import pythonosc as pyosc
+
 def preview(image):
     previewName(image,'Preview')
 
@@ -33,11 +39,6 @@ class mPatcher:
             if not k.startswith('_') and callable(obj):
                 setattr(state, k, obj)
 patch=mPatcher().m_patch
-
-import pprint
-pp=pprint.pprint
-
-import traceback
 
 def addToGlobs(module):
     for key in dir(module):
