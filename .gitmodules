@@ -1,3 +1,6 @@
 [submodule "pyNDI"]
 	path = pyNDI
 	url = https://github.com/CarlosFdez/pyNDI
+[submodule "BreezeStyleSheets"]
+	path = BreezeStyleSheets
+	url = .\\BreezeStyleSheets\\
